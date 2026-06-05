@@ -28,7 +28,8 @@ async def execute_sandbox(project_dir: str) -> dict:
             errors.append(f"Backend Sandbox Error: {backend_res.get('error')}")
             
         if not frontend_res.get("success"):
-            errors.append(f"Frontend Sandbox Error: {frontend_res.get('error')}")
+            error_code = frontend_res.get("error_code", "frontend_sandbox_error")
+            errors.append(f"[{error_code}] {frontend_res.get('error')}")
 
         health_report = {
             "success": False,
