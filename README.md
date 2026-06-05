@@ -89,23 +89,31 @@ python repair_demo.py
 ## 11. Screenshots Section
 
 ### Platform Interface
-![Homepage]("C:\Users\prave\Pictures\Screenshots\Screenshot 2026-06-05 112243.png")
-![Pipeline Running](assets/screenshots/02-pipeline-running.png)
-![Generation Success](assets/screenshots/03-generation-success.png)
-![ZIP Export](assets/screenshots/04-zip-export.png)
+<img width="1366" height="768" alt="Screenshot 2026-06-05 112243" src="https://github.com/user-attachments/assets/af8cd118-e27d-4363-9e4d-ee1852920e2e" />
+
+![Pipeline Running](<img width="1366" height="768" alt="Screenshot 2026-06-05 112318" src="https://github.com/user-attachments/assets/8f0fbeb0-fb07-4e62-9105-a6e526474681" />
+)
+![Generation Success](<img width="1366" height="768" alt="Screenshot 2026-06-05 112318" src="https://github.com/user-attachments/assets/d4e1a574-2832-4e38-ae5f-ac3ba118239e" />
+)
+![ZIP Export](<img width="384" height="298" alt="Screenshot 2026-06-05 112341" src="https://github.com/user-attachments/assets/cba323c4-de01-4129-b6c7-0f3d60888656" />
+)
+<img width="1352" height="761" alt="Screenshot 2026-06-05 112414" src="https://github.com/user-attachments/assets/770bb7fa-abdb-4c28-b4bd-585caed081b3" />
 
 ### Documentation & Health
-![Swagger Docs](assets/screenshots/05-swagger-docs.png)
+![Swagger Docs](<img width="1366" height="768" alt="Screenshot 2026-06-05 112430" src="https://github.com/user-attachments/assets/221c5821-ff6b-4900-afbb-fb046edf3cbf" />
+)
 
 ### Deployments
-![Render Deployment](assets/screenshots/06-render-deployment.png)
-![Vercel Deployment](assets/screenshots/07-vercel-deployment.png)
-![GitHub Repository](assets/screenshots/08-github-repo.png)
+![Render Deployment](<img width="1366" height="768" alt="Screenshot 2026-06-05 112430" src="https://github.com/user-attachments/assets/2e067284-830d-4b84-9e8d-556b4cbc20a5" />
+)
+![Vercel Deployment](<img width="1366" height="768" alt="Screenshot 2026-06-05 112458" src="https://github.com/user-attachments/assets/9920bc3e-9af5-4c25-affd-c0018eda4888" />
+)
+![GitHub Repository](<img width="1366" height="768" alt="Screenshot 2026-06-05 112514" src="https://github.com/user-attachments/assets/b85f0843-0023-45c5-a213-fc3ae09ecead" />
+)
 
 ### Internal Systems
-![Benchmark System](assets/screenshots/09-benchmark-system.png)
-![Runtime Validation](assets/screenshots/10-runtime-validation.png)
-
+![Benchmark System](<img width="1366" height="768" alt="Screenshot 2026-06-05 112326" src="https://github.com/user-attachments/assets/91ba5290-a8a2-4caa-83bc-4bac87a36188" />
+)
 ## 12. Live Demo Links
 - **GitHub Repository**: [surya066-git/ai-app-compiler](https://github.com/surya066-git/ai-app-compiler)
 - **Vercel Frontend**: [Live App](https://ai-app-compiler-puce.vercel.app)
