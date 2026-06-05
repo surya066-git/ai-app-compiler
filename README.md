@@ -89,7 +89,7 @@ python repair_demo.py
 ## 11. Screenshots Section
 
 ### Platform Interface
-![Homepage](assets/screenshots/01-homepage.png)
+![Homepage]("C:\Users\prave\Pictures\Screenshots\Screenshot 2026-06-05 112243.png")
 ![Pipeline Running](assets/screenshots/02-pipeline-running.png)
 ![Generation Success](assets/screenshots/03-generation-success.png)
 ![ZIP Export](assets/screenshots/04-zip-export.png)
