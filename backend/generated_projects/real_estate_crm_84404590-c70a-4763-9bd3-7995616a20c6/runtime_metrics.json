@@ -1,0 +1,11 @@
+{
+  "backend_startup_time": 3.3661563396453857,
+  "frontend_startup_time": 6.345504999160767,
+  "success": false,
+  "backend_url": "http://127.0.0.1:49960",
+  "frontend_url": "http://127.0.0.1:49961",
+  "health_success": false,
+  "errors": [
+    "Health verification failed"
+  ]
+}

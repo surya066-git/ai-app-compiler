@@ -1,0 +1,9 @@
+{
+  "backend_startup_time": 5.96670126914978,
+  "frontend_startup_time": 31.358996629714966,
+  "success": true,
+  "backend_url": "http://127.0.0.1:50603",
+  "frontend_url": "http://127.0.0.1:50604",
+  "health_success": true,
+  "errors": []
+}

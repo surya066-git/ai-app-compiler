@@ -1,0 +1,206 @@
+{
+    "generation_id": "e092065f-06f8-48b7-bd8c-d0057b23a87e",
+    "architecture": {
+        "app_name": "Todo App",
+        "description": "A simple todo application where users can manage their tasks.",
+        "tables": [
+            {
+                "name": "users",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "username",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "password_hash",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "tasks",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "user_id",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": true,
+                        "references": "users"
+                    },
+                    {
+                        "name": "description",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "is_completed",
+                        "type": "Boolean",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "due_date",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            }
+        ],
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "/register",
+                "requires_auth": false,
+                "description": "Registers a new user."
+            },
+            {
+                "method": "POST",
+                "path": "/login",
+                "requires_auth": false,
+                "description": "Authenticates a user and returns an access token."
+            },
+            {
+                "method": "GET",
+                "path": "/users/me",
+                "requires_auth": true,
+                "description": "Retrieves the current authenticated user's profile."
+            },
+            {
+                "method": "POST",
+                "path": "/tasks",
+                "requires_auth": true,
+                "description": "Creates a new task for the authenticated user."
+            },
+            {
+                "method": "GET",
+                "path": "/tasks",
+                "requires_auth": true,
+                "description": "Retrieves all tasks for the authenticated user."
+            },
+            {
+                "method": "GET",
+                "path": "/tasks/{id}",
+                "requires_auth": true,
+                "description": "Retrieves a specific task by ID for the authenticated user."
+            },
+            {
+                "method": "PUT",
+                "path": "/tasks/{id}",
+                "requires_auth": true,
+                "description": "Updates an existing task by ID for the authenticated user."
+            },
+            {
+                "method": "DELETE",
+                "path": "/tasks/{id}",
+                "requires_auth": true,
+                "description": "Deletes a task by ID for the authenticated user."
+            }
+        ],
+        "pages": [
+            {
+                "name": "Home Page",
+                "route": "/",
+                "description": "Displays welcome information and navigation links.",
+                "requires_auth": false
+            },
+            {
+                "name": "Login Page",
+                "route": "/login",
+                "description": "Allows users to log in to their account.",
+                "requires_auth": false
+            },
+            {
+                "name": "Register Page",
+                "route": "/register",
+                "description": "Allows new users to create an account.",
+                "requires_auth": false
+            },
+            {
+                "name": "Task List Page",
+                "route": "/tasks",
+                "description": "Displays the authenticated user's list of tasks.",
+                "requires_auth": true
+            },
+            {
+                "name": "Add Task Page",
+                "route": "/tasks/new",
+                "description": "Provides a form to create a new task.",
+                "requires_auth": true
+            }
+        ],
+        "roles": [
+            "User"
+        ],
+        "assumptions": [
+            "Authentication is token-based (e.g., JWT).",
+            "Password hashes are stored for user authentication."
+        ]
+    },
+    "exported_files": [
+        "backend/security.py",
+        "backend/auth.py",
+        "backend/database.py",
+        "backend/models.py",
+        "backend/routers/__init__.py",
+        "backend/routers/post_register.py",
+        "backend/routers/post_login.py",
+        "backend/routers/get_users_me.py",
+        "backend/routers/post_tasks.py",
+        "backend/routers/get_tasks.py",
+        "backend/routers/get_tasks_id.py",
+        "backend/routers/put_tasks_id.py",
+        "backend/routers/delete_tasks_id.py",
+        "backend/main.py",
+        "backend/requirements.txt",
+        "frontend/vite.config.js",
+        "frontend/package.json",
+        "frontend/index.html",
+        "frontend/tailwind.config.js",
+        "frontend/postcss.config.js",
+        "frontend/src/main.jsx",
+        "frontend/src/index.css",
+        "frontend/src/api.js",
+        "frontend/src/store.js",
+        "frontend/src/components/Sidebar.jsx",
+        "frontend/src/components/Navbar.jsx",
+        "frontend/src/components/Homepage.jsx",
+        "frontend/src/components/Loginpage.jsx",
+        "frontend/src/components/Registerpage.jsx",
+        "frontend/src/components/Tasklistpage.jsx",
+        "frontend/src/components/Addtaskpage.jsx",
+        "frontend/src/App.jsx",
+        "docker-compose.yml",
+        "backend/Dockerfile",
+        "frontend/Dockerfile",
+        ".env.example",
+        ".gitignore",
+        "README.md",
+        "Dockerfile",
+        "assumptions.json"
+    ]
+}

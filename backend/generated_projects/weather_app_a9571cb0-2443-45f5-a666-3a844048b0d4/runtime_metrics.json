@@ -1,0 +1,20 @@
+{
+    "start_time": 1780560828.051153,
+    "end_time": 1780560971.0611103,
+    "latency": 143.0099573135376,
+    "provider_fallbacks": 0,
+    "repair_counts": 0,
+    "validation_failures": 0,
+    "runtime_failures": 1,
+    "stages_completed": [
+        "Intent Extraction",
+        "Clarification",
+        "Planning & IR",
+        "Generation",
+        "Validation & Repair",
+        "Runtime Execution",
+        "Export",
+        "Evaluation"
+    ],
+    "provider_latency": {}
+}

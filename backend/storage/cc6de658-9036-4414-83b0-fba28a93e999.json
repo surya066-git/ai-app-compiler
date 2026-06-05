@@ -1,0 +1,124 @@
+{
+    "generation_id": "cc6de658-9036-4414-83b0-fba28a93e999",
+    "timestamp": "2026-06-04T08:04:47.723815Z",
+    "prompt": "Build a simple todo app",
+    "architecture": {
+        "app_name": "Todo App",
+        "description": "A simple application to manage todo items, allowing users to create, view, update, and delete tasks.",
+        "tables": [
+            {
+                "name": "Todo",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "task",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "completed",
+                        "type": "Boolean",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "created_at",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "users",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "username",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "hashed_password",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            }
+        ],
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "/todos",
+                "requires_auth": false,
+                "description": "Creates a new todo item."
+            },
+            {
+                "method": "GET",
+                "path": "/todos",
+                "requires_auth": false,
+                "description": "Retrieves all todo items."
+            },
+            {
+                "method": "GET",
+                "path": "/todos/{id}",
+                "requires_auth": false,
+                "description": "Retrieves a single todo item by ID."
+            },
+            {
+                "method": "PUT",
+                "path": "/todos/{id}",
+                "requires_auth": false,
+                "description": "Updates an existing todo item."
+            },
+            {
+                "method": "DELETE",
+                "path": "/todos/{id}",
+                "requires_auth": false,
+                "description": "Deletes a todo item by ID."
+            }
+        ],
+        "pages": [
+            {
+                "name": "Todo List",
+                "route": "/",
+                "description": "Displays a list of all todo items, with options to mark as complete or delete.",
+                "requires_auth": false
+            },
+            {
+                "name": "Add Todo",
+                "route": "/add",
+                "description": "Provides a form to add a new todo item.",
+                "requires_auth": false
+            }
+        ],
+        "roles": [
+            "User"
+        ],
+        "assumptions": [
+            "Users can create, read, update, and delete their own todo items."
+        ]
+    },
+    "provider": "gemini",
+    "version": "1.0.0"
+}

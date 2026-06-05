@@ -1,0 +1,12 @@
+[
+    {"id": "p1", "prompt": "Build a task management system with users, projects, and tasks. Include role-based access control where admins can see everything and users can only see their own tasks."},
+    {"id": "p2", "prompt": "Create an e-commerce platform that sells digital products. It needs a product catalog, shopping cart, and a checkout page."},
+    {"id": "p3", "prompt": "Develop a real-time chat application with multiple chat rooms, online user status, and message history."},
+    {"id": "p4", "prompt": "Build a CRM system for a real estate agency to track leads, properties, and agent assignments."},
+    {"id": "p5", "prompt": "Create a blog engine with markdown support, tags, categories, and an admin dashboard for content management."},
+    {"id": "p6", "prompt": "Develop a recipe sharing app where users can upload recipes, rate them, and create meal plans."},
+    {"id": "p7", "prompt": "Build an inventory management system with barcode scanning support, low stock alerts, and supplier tracking."},
+    {"id": "p8", "prompt": "Create a fitness tracking app that logs workouts, calculates calories burned, and displays progress charts."},
+    {"id": "p9", "prompt": "Develop a job board application where employers can post jobs and candidates can apply with their resumes."},
+    {"id": "p10", "prompt": "Build a personal finance tracker that allows users to connect bank accounts, categorize expenses, and set budgets."}
+]

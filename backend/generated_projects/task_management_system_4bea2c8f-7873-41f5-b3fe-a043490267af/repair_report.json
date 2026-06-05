@@ -1,0 +1,50 @@
+{
+  "repair_count": 2,
+  "traces": [
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: pip install failed: ild-env-gayorwa7\\normal\\Lib\\site-packages\\puccinialin\\_setup_rust.py\", line 73, in install_rust\r\n      check_call(\r\n      ~~~~~~~~~~^\r\n          [\r\n          ^\r\n      ...<15 lines>...\r\n          stderr=file,\r\n          ^^^^^^^^^^^^\r\n      )\r\n      ^\r\n    File \"C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\subprocess.py\", line 419, in check_call\r\n      raise CalledProcessError(retcode, cmd)\r\n  subprocess.CalledProcessError: Command '[WindowsPath('C:/Users/prave/AppData/Local/puccinialin/puccinialin/Cache/rustup-init/rustup-init.exe'), '-y', '--no-modify-path', '--profile', 'minimal', '--default-host', 'x86_64-pc-windows-msvc']' returned non-zero exit status 1.\r\n  [end of output]\r\n  \r\n  note: This error originates from a subprocess, and is likely not a problem with pip.\r\nerror: metadata-generation-failed\r\n\r\nEncountered error while generating package metadata.\r\n\r\npydantic-core\r\n\r\nnote: This is an issue with the package mentioned above, not pip.\r\nhint: See above for details.\r\n; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 1
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: pip install failed: ild-env-gayorwa7\\normal\\Lib\\site-packages\\puccinialin\\_setup_rust.py\", line 73, in install_rust\r\n      check_call(\r\n      ~~~~~~~~~~^\r\n          [\r\n          ^\r\n      ...<15 lines>...\r\n          stderr=file,\r\n          ^^^^^^^^^^^^\r\n      )\r\n      ^\r\n    File \"C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\subprocess.py\", line 419, in check_call\r\n      raise CalledProcessError(retcode, cmd)\r\n  subprocess.CalledProcessError: Command '[WindowsPath('C:/Users/prave/AppData/Local/puccinialin/puccinialin/Cache/rustup-init/rustup-init.exe'), '-y', '--no-modify-path', '--profile', 'minimal', '--default-host', 'x86_64-pc-windows-msvc']' returned non-zero exit status 1.\r\n  [end of output]\r\n  \r\n  note: This error originates from a subprocess, and is likely not a problem with pip.\r\nerror: metadata-generation-failed\r\n\r\nEncountered error while generating package metadata.\r\n\r\npydantic-core\r\n\r\nnote: This is an issue with the package mentioned above, not pip.\r\nhint: See above for details.\r\n; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: 'utf-8' codec can't decode bytes in position 1435-1436: invalid continuation byte; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 2
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: 'utf-8' codec can't decode bytes in position 1435-1436: invalid continuation byte; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: 'utf-8' codec can't decode bytes in position 1435-1436: invalid continuation byte; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 3
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+    {"id": "e1", "prompt": "Build an app.", "issue": "vague prompt"},
+    {"id": "e2", "prompt": "Create a system where users can login without passwords but passwords are required for all accounts.", "issue": "conflicting requirements"},
+    {"id": "e3", "prompt": "Build a healthcare portal for patient records.", "issue": "incomplete instructions - needs compliance info"},
+    {"id": "e4", "prompt": "Create a dashboard for analytics.", "issue": "ambiguous business logic - what analytics?"},
+    {"id": "e5", "prompt": "Make a clone of Facebook but only for dogs.", "issue": "ambiguous scope"},
+    {"id": "e6", "prompt": "Generate a backend that has no database but stores user profiles permanently.", "issue": "conflicting architectural requirements"},
+    {"id": "e7", "prompt": "Build a secure bank app.", "issue": "vague prompt"},
+    {"id": "e8", "prompt": "Create a system that predicts the stock market.", "issue": "impossible requirement"},
+    {"id": "e9", "prompt": "I need a website for my business.", "issue": "vague prompt"},
+    {"id": "e10", "prompt": "Build a social network where no data is ever sent to the server.", "issue": "conflicting requirements"}
+]

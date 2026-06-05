@@ -1,0 +1,617 @@
+{
+  "success": false,
+  "generation_id": "55367f32-1656-4cec-a260-51da8c15ab2e",
+  "intent": {
+    "app_name": "CRM Pro",
+    "features": [
+      "Login/Registration",
+      "Contact Management",
+      "Role-Based Access Control",
+      "Premium Plan with Payments",
+      "Analytics and Insights"
+    ],
+    "database_tables": [
+      "users",
+      "contacts",
+      "roles",
+      "payments",
+      "subscriptions",
+      "analytics"
+    ],
+    "pages": [
+      "Dashboard",
+      "Contacts",
+      "Settings",
+      "Analytics",
+      "Payment Plans",
+      "Login",
+      "Registration"
+    ]
+  },
+  "architecture": {
+    "app_name": "CRM App",
+    "description": "Customer Relationship Management Application",
+    "tables": [
+      {
+        "name": "users",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "username",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "password",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "role",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "contacts",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "email",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "user_id",
+            "type": "Integer",
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "references": "users.id"
+          }
+        ]
+      },
+      {
+        "name": "payments",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "user_id",
+            "type": "Integer",
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "references": "users.id"
+          },
+          {
+            "name": "plan",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "amount",
+            "type": "Float",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "analytics",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "user_id",
+            "type": "Integer",
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "references": "users.id"
+          },
+          {
+            "name": "data",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      }
+    ],
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/login",
+        "requires_auth": false,
+        "description": "Login endpoint"
+      },
+      {
+        "method": "GET",
+        "path": "/contacts",
+        "requires_auth": true,
+        "description": "Get all contacts"
+      },
+      {
+        "method": "GET",
+        "path": "/dashboard",
+        "requires_auth": true,
+        "description": "Get dashboard data"
+      },
+      {
+        "method": "GET",
+        "path": "/analytics",
+        "requires_auth": true,
+        "description": "Get analytics data"
+      },
+      {
+        "method": "POST",
+        "path": "/payments",
+        "requires_auth": true,
+        "description": "Make a payment"
+      }
+    ],
+    "pages": [
+      {
+        "name": "login",
+        "route": "/login",
+        "description": "Login page",
+        "requires_auth": false
+      },
+      {
+        "name": "contacts",
+        "route": "/contacts",
+        "description": "Contacts page",
+        "requires_auth": true
+      },
+      {
+        "name": "dashboard",
+        "route": "/dashboard",
+        "description": "Dashboard page",
+        "requires_auth": true
+      },
+      {
+        "name": "premium",
+        "route": "/premium",
+        "description": "Premium plan page",
+        "requires_auth": true
+      }
+    ],
+    "roles": [
+      "admin",
+      "user"
+    ],
+    "assumptions": []
+  },
+  "assumptions": [
+    "Authentication assumed to be JWT",
+    "PostgreSQL used for database",
+    "Material Design used for styling preferences",
+    "Stripe used for payment gateway",
+    "Google Analytics used for analytics metrics",
+    "Three role-based access levels: Admin, Manager, User",
+    "Premium plan features include advanced analytics and priority support"
+  ],
+  "metrics": {
+    "start_time": 1780589112.5733516,
+    "end_time": 1780589126.5931854,
+    "latency": 14.01983380317688,
+    "provider_fallbacks": 1,
+    "repair_counts": 2,
+    "validation_failures": 0,
+    "runtime_failures": 3,
+    "stages_completed": [
+      "Intent Extraction",
+      "Clarification",
+      "Planning",
+      "IR Generation",
+      "Generation",
+      "Validation",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Export",
+      "Evaluation"
+    ],
+    "provider_latency": {
+      "GeminiProvider": [
+        0.6705656051635742
+      ],
+      "GroqProvider": [
+        0.8598062992095947,
+        0.4980616569519043,
+        0.48262953758239746,
+        1.5647823810577393,
+        1.3569269180297852,
+        0.5223915576934814,
+        1.6000993251800537,
+        1.2598199844360352,
+        1.293583631515503,
+        1.7830450534820557,
+        0.6260237693786621,
+        0.640120267868042
+      ]
+    }
+  },
+  "provider_metrics": {
+    "attempts": 13,
+    "fallbacks": 1,
+    "provider_switches": 0,
+    "quota_failures": 1,
+    "timeout_failures": 0,
+    "fallback_events": [
+      {
+        "from": "GeminiProvider",
+        "to": null,
+        "reason": "quota_cooldown_started",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "quota",
+        "skipped": false
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      },
+      {
+        "from": "GeminiProvider",
+        "to": "GroqProvider",
+        "reason": "provider_cooldown",
+        "skipped": true
+      }
+    ],
+    "provider_latency": {
+      "GeminiProvider": [
+        0.6705656051635742
+      ],
+      "GroqProvider": [
+        0.8598062992095947,
+        0.4980616569519043,
+        0.48262953758239746,
+        1.5647823810577393,
+        1.3569269180297852,
+        0.5223915576934814,
+        1.6000993251800537,
+        1.2598199844360352,
+        1.293583631515503,
+        1.7830450534820557,
+        0.6260237693786621,
+        0.640120267868042
+      ]
+    },
+    "provider_failures": {
+      "GeminiProvider": 1
+    },
+    "provider_successes": {
+      "GroqProvider": 12
+    },
+    "last_provider": "GroqProvider",
+    "provider_health": {
+      "GeminiProvider": 0,
+      "GroqProvider": 100,
+      "local_deterministic": 100
+    }
+  },
+  "repair_count": 2,
+  "repair_trace": [
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 1
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 2
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 3
+    }
+  ],
+  "runtime": {
+    "success": false,
+    "errors": [
+      "Backend Sandbox Error: ",
+      "Frontend Sandbox Error: Frontend validation failed: "
+    ],
+    "health_report": {
+      "success": false,
+      "checks": [],
+      "backend_url": null,
+      "frontend_url": null
+    },
+    "metrics": {
+      "backend_startup_time": null,
+      "frontend_startup_time": null,
+      "success": false,
+      "backend_url": null,
+      "frontend_url": null,
+      "health_success": false,
+      "errors": [
+        "Backend Sandbox Error: ",
+        "Frontend Sandbox Error: Frontend validation failed: "
+      ]
+    }
+  },
+  "score": {
+    "generation_id": "55367f32-1656-4cec-a260-51da8c15ab2e",
+    "score": 50,
+    "repair_count": 2,
+    "runtime_success": false,
+    "grade": "F"
+  },
+  "stages": [
+    {
+      "stage": "Intent Extraction",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Clarification",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Planning",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "IR Generation",
+      "status": "completed",
+      "details": {
+        "tables": 4,
+        "endpoints": 5,
+        "pages": 4
+      }
+    },
+    {
+      "stage": "Generation",
+      "status": "completed",
+      "details": {
+        "files_generated": 36
+      }
+    },
+    {
+      "stage": "Validation",
+      "status": "completed",
+      "details": {
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "skipped",
+      "details": {
+        "reason": "No validation repair required"
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "failed",
+      "details": {
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "failed",
+      "details": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "completed",
+      "details": {
+        "attempt": 1,
+        "scope": "runtime",
+        "error": [
+          "Backend Sandbox Error: ",
+          "Frontend Sandbox Error: Frontend validation failed: "
+        ]
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "failed",
+      "details": {
+        "attempt": 2
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "failed",
+      "details": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "completed",
+      "details": {
+        "attempt": 2,
+        "scope": "runtime",
+        "error": [
+          "Backend Sandbox Error: ",
+          "Frontend Sandbox Error: Frontend validation failed: "
+        ]
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "failed",
+      "details": {
+        "attempt": 3
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "failed",
+      "details": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      }
+    },
+    {
+      "stage": "Export",
+      "status": "blocked",
+      "details": {
+        "reason": "Runtime or health verification failed"
+      }
+    },
+    {
+      "stage": "Evaluation",
+      "status": "completed",
+      "details": {
+        "score": 50,
+        "grade": "F"
+      }
+    }
+  ],
+  "download_url": null
+}

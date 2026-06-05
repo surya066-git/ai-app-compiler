@@ -1,0 +1,499 @@
+{
+  "success": false,
+  "generation_id": "4bea2c8f-7873-41f5-b3fe-a043490267af",
+  "intent": {
+    "app_name": "Task Management System",
+    "features": [
+      "Authentication",
+      "Dashboard",
+      "Validation",
+      "ZIP export",
+      "Projects management",
+      "Tasks management"
+    ],
+    "database_tables": [
+      "users",
+      "projects",
+      "tasks"
+    ],
+    "pages": [
+      "Dashboard",
+      "Projects",
+      "Tasks"
+    ]
+  },
+  "architecture": {
+    "app_name": "Task Management System",
+    "description": "Build a todo app with users and tasks",
+    "tables": [
+      {
+        "name": "users",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "username",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "hashed_password",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "projects",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "tasks",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      }
+    ],
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/api/users",
+        "requires_auth": false,
+        "description": "List users records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/users",
+        "requires_auth": false,
+        "description": "Create a users record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/users/{id}",
+        "requires_auth": false,
+        "description": "Fetch one users record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects",
+        "requires_auth": true,
+        "description": "List projects records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/projects",
+        "requires_auth": true,
+        "description": "Create a projects record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/projects/{id}",
+        "requires_auth": true,
+        "description": "Fetch one projects record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/tasks",
+        "requires_auth": true,
+        "description": "List tasks records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/tasks",
+        "requires_auth": true,
+        "description": "Create a tasks record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/tasks/{id}",
+        "requires_auth": true,
+        "description": "Fetch one tasks record"
+      }
+    ],
+    "pages": [
+      {
+        "name": "Dashboard",
+        "route": "/dashboard",
+        "description": "Dashboard workspace",
+        "requires_auth": false
+      },
+      {
+        "name": "Projects",
+        "route": "/projects",
+        "description": "Projects workspace",
+        "requires_auth": true
+      },
+      {
+        "name": "Tasks",
+        "route": "/tasks",
+        "description": "Tasks workspace",
+        "requires_auth": true
+      }
+    ],
+    "roles": [
+      "admin",
+      "user"
+    ],
+    "assumptions": [
+      "JWT authentication is used for protected pages and APIs.",
+      "SQLite is used for local runtime validation and PostgreSQL is configured for deployment.",
+      "CRUD endpoints are generated for the primary domain tables."
+    ]
+  },
+  "assumptions": [],
+  "metrics": {
+    "start_time": 1780588342.332746,
+    "end_time": 1780588655.3753338,
+    "latency": 313.0425877571106,
+    "provider_fallbacks": 0,
+    "repair_counts": 2,
+    "validation_failures": 0,
+    "runtime_failures": 3,
+    "stages_completed": [
+      "Intent Extraction",
+      "Clarification",
+      "Planning",
+      "IR Generation",
+      "Generation",
+      "Validation",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Export",
+      "Evaluation"
+    ],
+    "provider_latency": {
+      "local_deterministic": [
+        0.00012803077697753906,
+        3.647804260253906e-05,
+        0.00022292137145996094,
+        0.0001800060272216797,
+        1.7642974853515625e-05,
+        0.00011157989501953125,
+        1.9073486328125e-05,
+        2.1696090698242188e-05,
+        3.457069396972656e-05,
+        0.00010275840759277344
+      ]
+    }
+  },
+  "provider_metrics": {
+    "attempts": 10,
+    "fallbacks": 0,
+    "provider_switches": 0,
+    "quota_failures": 0,
+    "timeout_failures": 0,
+    "fallback_events": [],
+    "provider_latency": {
+      "local_deterministic": [
+        0.00012803077697753906,
+        3.647804260253906e-05,
+        0.00022292137145996094,
+        0.0001800060272216797,
+        1.7642974853515625e-05,
+        0.00011157989501953125,
+        1.9073486328125e-05,
+        2.1696090698242188e-05,
+        3.457069396972656e-05,
+        0.00010275840759277344
+      ]
+    },
+    "provider_failures": {},
+    "provider_successes": {
+      "local_deterministic": 10
+    },
+    "last_provider": "local_deterministic",
+    "provider_health": {
+      "local_deterministic": 100
+    }
+  },
+  "repair_count": 2,
+  "repair_trace": [
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: pip install failed: ild-env-gayorwa7\\normal\\Lib\\site-packages\\puccinialin\\_setup_rust.py\", line 73, in install_rust\r\n      check_call(\r\n      ~~~~~~~~~~^\r\n          [\r\n          ^\r\n      ...<15 lines>...\r\n          stderr=file,\r\n          ^^^^^^^^^^^^\r\n      )\r\n      ^\r\n    File \"C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\subprocess.py\", line 419, in check_call\r\n      raise CalledProcessError(retcode, cmd)\r\n  subprocess.CalledProcessError: Command '[WindowsPath('C:/Users/prave/AppData/Local/puccinialin/puccinialin/Cache/rustup-init/rustup-init.exe'), '-y', '--no-modify-path', '--profile', 'minimal', '--default-host', 'x86_64-pc-windows-msvc']' returned non-zero exit status 1.\r\n  [end of output]\r\n  \r\n  note: This error originates from a subprocess, and is likely not a problem with pip.\r\nerror: metadata-generation-failed\r\n\r\nEncountered error while generating package metadata.\r\n\r\npydantic-core\r\n\r\nnote: This is an issue with the package mentioned above, not pip.\r\nhint: See above for details.\r\n; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 1
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: pip install failed: ild-env-gayorwa7\\normal\\Lib\\site-packages\\puccinialin\\_setup_rust.py\", line 73, in install_rust\r\n      check_call(\r\n      ~~~~~~~~~~^\r\n          [\r\n          ^\r\n      ...<15 lines>...\r\n          stderr=file,\r\n          ^^^^^^^^^^^^\r\n      )\r\n      ^\r\n    File \"C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\subprocess.py\", line 419, in check_call\r\n      raise CalledProcessError(retcode, cmd)\r\n  subprocess.CalledProcessError: Command '[WindowsPath('C:/Users/prave/AppData/Local/puccinialin/puccinialin/Cache/rustup-init/rustup-init.exe'), '-y', '--no-modify-path', '--profile', 'minimal', '--default-host', 'x86_64-pc-windows-msvc']' returned non-zero exit status 1.\r\n  [end of output]\r\n  \r\n  note: This error originates from a subprocess, and is likely not a problem with pip.\r\nerror: metadata-generation-failed\r\n\r\nEncountered error while generating package metadata.\r\n\r\npydantic-core\r\n\r\nnote: This is an issue with the package mentioned above, not pip.\r\nhint: See above for details.\r\n; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: 'utf-8' codec can't decode bytes in position 1435-1436: invalid continuation byte; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 2
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: 'utf-8' codec can't decode bytes in position 1435-1436: invalid continuation byte; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: 'utf-8' codec can't decode bytes in position 1435-1436: invalid continuation byte; Frontend Sandbox Error: Frontend failed health check. Logs: Process hung.",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 3
+    }
+  ],
+  "runtime": {
+    "success": false,
+    "errors": [
+      "Backend Sandbox Error: 'utf-8' codec can't decode bytes in position 1435-1436: invalid continuation byte",
+      "Frontend Sandbox Error: Frontend failed health check. Logs: Process hung."
+    ],
+    "health_report": {
+      "success": false,
+      "checks": [],
+      "backend_url": null,
+      "frontend_url": null
+    },
+    "metrics": {
+      "backend_startup_time": null,
+      "frontend_startup_time": null,
+      "success": false,
+      "backend_url": null,
+      "frontend_url": null,
+      "health_success": false,
+      "errors": [
+        "Backend Sandbox Error: 'utf-8' codec can't decode bytes in position 1435-1436: invalid continuation byte",
+        "Frontend Sandbox Error: Frontend failed health check. Logs: Process hung."
+      ]
+    }
+  },
+  "score": {
+    "generation_id": "4bea2c8f-7873-41f5-b3fe-a043490267af",
+    "score": 50,
+    "repair_count": 2,
+    "runtime_success": false,
+    "grade": "F"
+  },
+  "stages": [
+    {
+      "stage": "Intent Extraction",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Clarification",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Planning",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "IR Generation",
+      "status": "completed",
+      "details": {
+        "tables": 3,
+        "endpoints": 9,
+        "pages": 3
+      }
+    },
+    {
+      "stage": "Generation",
+      "status": "completed",
+      "details": {
+        "files_generated": 39
+      }
+    },
+    {
+      "stage": "Validation",
+      "status": "completed",
+      "details": {
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "skipped",
+      "details": {
+        "reason": "No validation repair required"
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "failed",
+      "details": {
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "failed",
+      "details": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "completed",
+      "details": {
+        "attempt": 1,
+        "scope": "runtime",
+        "error": [
+          "Backend Sandbox Error: pip install failed: ild-env-gayorwa7\\normal\\Lib\\site-packages\\puccinialin\\_setup_rust.py\", line 73, in install_rust\r\n      check_call(\r\n      ~~~~~~~~~~^\r\n          [\r\n          ^\r\n      ...<15 lines>...\r\n          stderr=file,\r\n          ^^^^^^^^^^^^\r\n      )\r\n      ^\r\n    File \"C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\subprocess.py\", line 419, in check_call\r\n      raise CalledProcessError(retcode, cmd)\r\n  subprocess.CalledProcessError: Command '[WindowsPath('C:/Users/prave/AppData/Local/puccinialin/puccinialin/Cache/rustup-init/rustup-init.exe'), '-y', '--no-modify-path', '--profile', 'minimal', '--default-host', 'x86_64-pc-windows-msvc']' returned non-zero exit status 1.\r\n  [end of output]\r\n  \r\n  note: This error originates from a subprocess, and is likely not a problem with pip.\r\nerror: metadata-generation-failed\r\n\r\nEncountered error while generating package metadata.\r\n\r\npydantic-core\r\n\r\nnote: This is an issue with the package mentioned above, not pip.\r\nhint: See above for details.\r\n",
+          "Frontend Sandbox Error: Frontend failed health check. Logs: Process hung."
+        ]
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "failed",
+      "details": {
+        "attempt": 2
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "failed",
+      "details": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "completed",
+      "details": {
+        "attempt": 2,
+        "scope": "runtime",
+        "error": [
+          "Backend Sandbox Error: 'utf-8' codec can't decode bytes in position 1435-1436: invalid continuation byte",
+          "Frontend Sandbox Error: Frontend failed health check. Logs: Process hung."
+        ]
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "failed",
+      "details": {
+        "attempt": 3
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "failed",
+      "details": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      }
+    },
+    {
+      "stage": "Export",
+      "status": "blocked",
+      "details": {
+        "reason": "Runtime or health verification failed"
+      }
+    },
+    {
+      "stage": "Evaluation",
+      "status": "completed",
+      "details": {
+        "score": 50,
+        "grade": "F"
+      }
+    }
+  ],
+  "download_url": null
+}

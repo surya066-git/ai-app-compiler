@@ -1,0 +1,197 @@
+{
+    "total_evaluations": 3,
+    "success_rate": 100.0,
+    "average_latency_seconds": 0.2711111704508464,
+    "average_repairs_per_run": 0.0,
+    "total_retries": 0,
+    "total_provider_fallbacks": 0,
+    "total_provider_switches": 0,
+    "total_quota_failures": 0,
+    "total_validation_failures": 0,
+    "total_runtime_failures": 0,
+    "runs": [
+        {
+            "id": "p1",
+            "prompt": "Build a task management system with users, projects, and tasks. Include role-based access control where admins can see everything and users can only see their own tasks.",
+            "issue": null,
+            "success": true,
+            "generation_id": "22e82546-8ea8-4bd2-8bdd-454f3bc0f97b",
+            "latency": 0.26864194869995117,
+            "repair_counts": 0,
+            "provider_fallbacks": 0,
+            "provider_switches": 0,
+            "quota_failures": 0,
+            "runtime_failures": 0,
+            "validation_failures": 0,
+            "download_url": "/download/task_management_system_22e82546-8ea8-4bd2-8bdd-454f3bc0f97b.zip",
+            "stage_statuses": [
+                [
+                    "Intent Extraction",
+                    "completed"
+                ],
+                [
+                    "Clarification",
+                    "completed"
+                ],
+                [
+                    "Planning",
+                    "completed"
+                ],
+                [
+                    "IR Generation",
+                    "completed"
+                ],
+                [
+                    "Generation",
+                    "completed"
+                ],
+                [
+                    "Validation",
+                    "completed"
+                ],
+                [
+                    "Repair",
+                    "skipped"
+                ],
+                [
+                    "Runtime Launch",
+                    "skipped"
+                ],
+                [
+                    "Health Check",
+                    "skipped"
+                ],
+                [
+                    "Export",
+                    "completed"
+                ],
+                [
+                    "Evaluation",
+                    "completed"
+                ]
+            ]
+        },
+        {
+            "id": "p2",
+            "prompt": "Create an e-commerce platform that sells digital products. It needs a product catalog, shopping cart, and a checkout page.",
+            "issue": null,
+            "success": true,
+            "generation_id": "c5ff5b32-3b7a-422d-9dc0-e5e2f1190167",
+            "latency": 0.32046961784362793,
+            "repair_counts": 0,
+            "provider_fallbacks": 0,
+            "provider_switches": 0,
+            "quota_failures": 0,
+            "runtime_failures": 0,
+            "validation_failures": 0,
+            "download_url": "/download/digital_commerce_platform_c5ff5b32-3b7a-422d-9dc0-e5e2f1190167.zip",
+            "stage_statuses": [
+                [
+                    "Intent Extraction",
+                    "completed"
+                ],
+                [
+                    "Clarification",
+                    "completed"
+                ],
+                [
+                    "Planning",
+                    "completed"
+                ],
+                [
+                    "IR Generation",
+                    "completed"
+                ],
+                [
+                    "Generation",
+                    "completed"
+                ],
+                [
+                    "Validation",
+                    "completed"
+                ],
+                [
+                    "Repair",
+                    "skipped"
+                ],
+                [
+                    "Runtime Launch",
+                    "skipped"
+                ],
+                [
+                    "Health Check",
+                    "skipped"
+                ],
+                [
+                    "Export",
+                    "completed"
+                ],
+                [
+                    "Evaluation",
+                    "completed"
+                ]
+            ]
+        },
+        {
+            "id": "p3",
+            "prompt": "Develop a real-time chat application with multiple chat rooms, online user status, and message history.",
+            "issue": null,
+            "success": true,
+            "generation_id": "bf6cedaf-a3ff-483b-9eda-b553777ebc64",
+            "latency": 0.22422194480895996,
+            "repair_counts": 0,
+            "provider_fallbacks": 0,
+            "provider_switches": 0,
+            "quota_failures": 0,
+            "runtime_failures": 0,
+            "validation_failures": 0,
+            "download_url": "/download/team_chat_app_bf6cedaf-a3ff-483b-9eda-b553777ebc64.zip",
+            "stage_statuses": [
+                [
+                    "Intent Extraction",
+                    "completed"
+                ],
+                [
+                    "Clarification",
+                    "completed"
+                ],
+                [
+                    "Planning",
+                    "completed"
+                ],
+                [
+                    "IR Generation",
+                    "completed"
+                ],
+                [
+                    "Generation",
+                    "completed"
+                ],
+                [
+                    "Validation",
+                    "completed"
+                ],
+                [
+                    "Repair",
+                    "skipped"
+                ],
+                [
+                    "Runtime Launch",
+                    "skipped"
+                ],
+                [
+                    "Health Check",
+                    "skipped"
+                ],
+                [
+                    "Export",
+                    "completed"
+                ],
+                [
+                    "Evaluation",
+                    "completed"
+                ]
+            ]
+        }
+    ]
+}

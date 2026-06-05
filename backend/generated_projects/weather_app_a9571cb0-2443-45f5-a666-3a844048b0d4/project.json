@@ -1,0 +1,201 @@
+{
+    "generation_id": "a9571cb0-2443-45f5-a666-3a844048b0d4",
+    "architecture": {
+        "app_name": "Weather App",
+        "description": "A simple application to display current weather conditions and forecasts for various cities.",
+        "tables": [
+            {
+                "name": "City",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "name",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "latitude",
+                        "type": "Real",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "longitude",
+                        "type": "Real",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "country",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "WeatherObservation",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "city_id",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": true,
+                        "references": "City"
+                    },
+                    {
+                        "name": "timestamp",
+                        "type": "DateTime",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "temperature_celsius",
+                        "type": "Real",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "humidity_percent",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "wind_speed_kph",
+                        "type": "Real",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "conditions",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "users",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "username",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "hashed_password",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            }
+        ],
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "/api/weather/current/{city_name}",
+                "requires_auth": false,
+                "description": "Retrieves current weather conditions for a specified city."
+            },
+            {
+                "method": "GET",
+                "path": "/api/weather/forecast/{city_name}",
+                "requires_auth": false,
+                "description": "Retrieves a multi-day weather forecast for a specified city."
+            },
+            {
+                "method": "GET",
+                "path": "/api/cities",
+                "requires_auth": false,
+                "description": "Lists all cities available for weather lookup."
+            }
+        ],
+        "pages": [
+            {
+                "name": "Home",
+                "route": "/",
+                "description": "Displays a search bar and possibly featured city weather.",
+                "requires_auth": false
+            },
+            {
+                "name": "City Weather Detail",
+                "route": "/city/{cityName}",
+                "description": "Shows detailed current weather and forecast for a specific city.",
+                "requires_auth": false
+            }
+        ],
+        "roles": [
+            "Guest",
+            "Authenticated User"
+        ],
+        "assumptions": []
+    },
+    "exported_files": [
+        "backend/security.py",
+        "backend/auth.py",
+        "backend/database.py",
+        "backend/models.py",
+        "backend/routers/api_weather_current__city_name_.py",
+        "backend/routers/api_weather_forecast__city_name_.py",
+        "backend/routers/api_cities.py",
+        "backend/main.py",
+        "backend/requirements.txt",
+        "frontend/vite.config.js",
+        "frontend/package.json",
+        "frontend/index.html",
+        "frontend/tailwind.config.js",
+        "frontend/postcss.config.js",
+        "frontend/src/main.jsx",
+        "frontend/src/index.css",
+        "frontend/src/api.js",
+        "frontend/src/store.js",
+        "frontend/src/components/Sidebar.jsx",
+        "frontend/src/components/Navbar.jsx",
+        "frontend/src/components/Home.jsx",
+        "frontend/src/components/Cityweatherdetail.jsx",
+        "frontend/src/App.jsx",
+        "docker-compose.yml",
+        "backend/Dockerfile",
+        "frontend/Dockerfile",
+        ".env.example",
+        ".gitignore",
+        "README.md",
+        "Dockerfile",
+        "assumptions.json"
+    ]
+}

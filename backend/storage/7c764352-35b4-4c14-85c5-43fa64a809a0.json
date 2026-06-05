@@ -1,0 +1,152 @@
+{
+    "generation_id": "7c764352-35b4-4c14-85c5-43fa64a809a0",
+    "timestamp": "2026-06-03T18:51:50.544806Z",
+    "prompt": "create student attendance daily usage website",
+    "architecture": {
+        "app_name": "Student Attendance Tracker",
+        "description": "A daily usage website for tracking student attendance",
+        "tables": [
+            {
+                "name": "students",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "name",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "email",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "attendance",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "student_id",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": true,
+                        "references": "students.id"
+                    },
+                    {
+                        "name": "date",
+                        "type": "Date",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "status",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "users",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "username",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "hashed_password",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            }
+        ],
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "/students",
+                "requires_auth": true,
+                "description": "Get all students"
+            },
+            {
+                "method": "GET",
+                "path": "/attendance",
+                "requires_auth": true,
+                "description": "Get all attendance records"
+            },
+            {
+                "method": "POST",
+                "path": "/attendance",
+                "requires_auth": true,
+                "description": "Create a new attendance record"
+            }
+        ],
+        "pages": [
+            {
+                "name": "Dashboard",
+                "route": "/",
+                "description": "The main dashboard page",
+                "requires_auth": true
+            },
+            {
+                "name": "Students",
+                "route": "/students",
+                "description": "The students page",
+                "requires_auth": true
+            },
+            {
+                "name": "Attendance",
+                "route": "/attendance",
+                "description": "The attendance page",
+                "requires_auth": true
+            }
+        ],
+        "roles": [
+            "Admin",
+            "Teacher",
+            "Student"
+        ],
+        "assumptions": [
+            "Authentication assumed to be JWT",
+            "PostgreSQL used for database",
+            "React used for frontend framework",
+            "Bootstrap used for styling preferences",
+            "User roles include Admin, Teacher, and Student with varying access control",
+            "Attendance tracking method assumed to be QR code scanning",
+            "Report generation requirements include daily, weekly, and monthly attendance reports"
+        ]
+    },
+    "provider": "gemini",
+    "version": "1.0.0"
+}

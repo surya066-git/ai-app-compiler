@@ -1,0 +1,374 @@
+{
+  "success": true,
+  "generation_id": "e092065f-06f8-48b7-bd8c-d0057b23a87e",
+  "intent": {
+    "app_name": "Todo App",
+    "features": [
+      "User authentication and authorization",
+      "Create, read, update, and delete tasks",
+      "Associate tasks with specific users",
+      "Mark tasks as complete"
+    ],
+    "database_tables": [
+      "users",
+      "tasks"
+    ],
+    "pages": [
+      "Dashboard",
+      "Tasks List",
+      "Settings"
+    ]
+  },
+  "architecture": {
+    "app_name": "Todo App",
+    "description": "A simple todo application where users can manage their tasks.",
+    "tables": [
+      {
+        "name": "users",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "username",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "password_hash",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "tasks",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "user_id",
+            "type": "Integer",
+            "is_primary_key": false,
+            "is_foreign_key": true,
+            "references": "users"
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "is_completed",
+            "type": "Boolean",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "due_date",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      }
+    ],
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/register",
+        "requires_auth": false,
+        "description": "Registers a new user."
+      },
+      {
+        "method": "POST",
+        "path": "/login",
+        "requires_auth": false,
+        "description": "Authenticates a user and returns an access token."
+      },
+      {
+        "method": "GET",
+        "path": "/users/me",
+        "requires_auth": true,
+        "description": "Retrieves the current authenticated user's profile."
+      },
+      {
+        "method": "POST",
+        "path": "/tasks",
+        "requires_auth": true,
+        "description": "Creates a new task for the authenticated user."
+      },
+      {
+        "method": "GET",
+        "path": "/tasks",
+        "requires_auth": true,
+        "description": "Retrieves all tasks for the authenticated user."
+      },
+      {
+        "method": "GET",
+        "path": "/tasks/{id}",
+        "requires_auth": true,
+        "description": "Retrieves a specific task by ID for the authenticated user."
+      },
+      {
+        "method": "PUT",
+        "path": "/tasks/{id}",
+        "requires_auth": true,
+        "description": "Updates an existing task by ID for the authenticated user."
+      },
+      {
+        "method": "DELETE",
+        "path": "/tasks/{id}",
+        "requires_auth": true,
+        "description": "Deletes a task by ID for the authenticated user."
+      }
+    ],
+    "pages": [
+      {
+        "name": "Home Page",
+        "route": "/",
+        "description": "Displays welcome information and navigation links.",
+        "requires_auth": false
+      },
+      {
+        "name": "Login Page",
+        "route": "/login",
+        "description": "Allows users to log in to their account.",
+        "requires_auth": false
+      },
+      {
+        "name": "Register Page",
+        "route": "/register",
+        "description": "Allows new users to create an account.",
+        "requires_auth": false
+      },
+      {
+        "name": "Task List Page",
+        "route": "/tasks",
+        "description": "Displays the authenticated user's list of tasks.",
+        "requires_auth": true
+      },
+      {
+        "name": "Add Task Page",
+        "route": "/tasks/new",
+        "description": "Provides a form to create a new task.",
+        "requires_auth": true
+      }
+    ],
+    "roles": [
+      "User"
+    ],
+    "assumptions": [
+      "Authentication is token-based (e.g., JWT).",
+      "Password hashes are stored for user authentication."
+    ]
+  },
+  "assumptions": [
+    "Frontend framework/library assumed to be React.",
+    "Backend framework/language assumed to be Node.js with Express.",
+    "Database type assumed to be PostgreSQL.",
+    "Authentication method assumed to be email/password for user registration/login, utilizing JWT for session management.",
+    "Task attributes assumed to include title, description, due date, priority (e.g., Low, Medium, High), and completion status.",
+    "Styling preferences assumed to use Tailwind CSS for UI design.",
+    "Deployment strategy assumed to involve Docker for containerization of both frontend and backend.",
+    "API design assumed to be RESTful API.",
+    "Error handling and logging assumed to be basic, focusing on common error types and console logging.",
+    "Testing requirements assumed to include basic unit tests for core logic on both frontend and backend."
+  ],
+  "metrics": {
+    "start_time": 1780586916.8554065,
+    "end_time": 1780586964.1947765,
+    "latency": 47.339370012283325,
+    "provider_fallbacks": 5,
+    "repair_counts": 0,
+    "validation_failures": 0,
+    "runtime_failures": 0,
+    "stages_completed": [
+      "Intent Extraction",
+      "Clarification",
+      "Planning",
+      "IR Generation",
+      "Generation",
+      "Validation",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Export",
+      "Evaluation"
+    ],
+    "provider_latency": {
+      "GeminiProvider": [
+        3.238184690475464,
+        5.837026357650757,
+        3.852017879486084,
+        7.900660753250122,
+        8.509048461914062,
+        3.5671629905700684,
+        0.40638113021850586,
+        0.3905177116394043,
+        0.39069676399230957,
+        0.4043087959289551,
+        0.3982851505279541
+      ],
+      "GroqProvider": [
+        1.566072702407837,
+        1.9427263736724854,
+        1.4258036613464355,
+        1.3643715381622314,
+        1.6274631023406982
+      ]
+    }
+  },
+  "provider_metrics": {
+    "attempts": 16,
+    "fallbacks": 5,
+    "provider_latency": {
+      "GeminiProvider": [
+        3.238184690475464,
+        5.837026357650757,
+        3.852017879486084,
+        7.900660753250122,
+        8.509048461914062,
+        3.5671629905700684,
+        0.40638113021850586,
+        0.3905177116394043,
+        0.39069676399230957,
+        0.4043087959289551,
+        0.3982851505279541
+      ],
+      "GroqProvider": [
+        1.566072702407837,
+        1.9427263736724854,
+        1.4258036613464355,
+        1.3643715381622314,
+        1.6274631023406982
+      ]
+    },
+    "provider_failures": {
+      "GeminiProvider": 5
+    },
+    "provider_successes": {
+      "GeminiProvider": 6,
+      "GroqProvider": 5
+    },
+    "last_provider": "GroqProvider",
+    "provider_health": {
+      "GeminiProvider": 54,
+      "GroqProvider": 100,
+      "local_deterministic": 100
+    }
+  },
+  "repair_count": 0,
+  "repair_trace": [],
+  "runtime": {
+    "success": true,
+    "skipped": true,
+    "errors": [],
+    "health_report": {
+      "success": true,
+      "skipped": true,
+      "checks": []
+    }
+  },
+  "score": {
+    "generation_id": "e092065f-06f8-48b7-bd8c-d0057b23a87e",
+    "score": 100,
+    "repair_count": 0,
+    "runtime_success": true,
+    "grade": "A"
+  },
+  "stages": [
+    {
+      "stage": "Intent Extraction",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Clarification",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Planning",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "IR Generation",
+      "status": "completed",
+      "details": {
+        "tables": 2,
+        "endpoints": 8,
+        "pages": 5
+      }
+    },
+    {
+      "stage": "Generation",
+      "status": "completed",
+      "details": {
+        "files_generated": 40
+      }
+    },
+    {
+      "stage": "Validation",
+      "status": "completed",
+      "details": {
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "skipped",
+      "details": {
+        "reason": "No validation repair required"
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "skipped",
+      "details": {
+        "reason": "Benchmark quick mode"
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "skipped",
+      "details": {
+        "reason": "Benchmark quick mode"
+      }
+    },
+    {
+      "stage": "Export",
+      "status": "completed",
+      "details": {
+        "zip_path": "generated_projects\\todo_app_e092065f-06f8-48b7-bd8c-d0057b23a87e.zip"
+      }
+    },
+    {
+      "stage": "Evaluation",
+      "status": "completed",
+      "details": {
+        "score": 100,
+        "grade": "A"
+      }
+    }
+  ],
+  "download_url": "/download/todo_app_e092065f-06f8-48b7-bd8c-d0057b23a87e.zip"
+}

@@ -1,0 +1,194 @@
+{
+    "generation_id": "51272d6f-4a5a-43f0-900e-7d64b595dbe3",
+    "timestamp": "2026-06-04T16:01:28.001796Z",
+    "prompt": "\u201cBuild a CRM with login, contacts, dashboard, role-based access, and premium plan with payments. Admins can see analytics.\u201d",
+    "architecture": {
+        "app_name": "CRM",
+        "description": "Customer Relationship Management System",
+        "tables": [
+            {
+                "name": "users",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "username",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "password",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "role",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "contacts",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "name",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "email",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "user_id",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": true,
+                        "references": "users.id"
+                    }
+                ]
+            },
+            {
+                "name": "payments",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "user_id",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": true,
+                        "references": "users.id"
+                    },
+                    {
+                        "name": "plan",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "analytics",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "user_id",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": true,
+                        "references": "users.id"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            }
+        ],
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "/login",
+                "requires_auth": false,
+                "description": "Login endpoint"
+            },
+            {
+                "method": "GET",
+                "path": "/contacts",
+                "requires_auth": true,
+                "description": "Get all contacts"
+            },
+            {
+                "method": "GET",
+                "path": "/dashboard",
+                "requires_auth": true,
+                "description": "Get dashboard data"
+            },
+            {
+                "method": "GET",
+                "path": "/analytics",
+                "requires_auth": true,
+                "description": "Get analytics data"
+            },
+            {
+                "method": "POST",
+                "path": "/payments",
+                "requires_auth": true,
+                "description": "Make a payment"
+            }
+        ],
+        "pages": [
+            {
+                "name": "login",
+                "route": "/login",
+                "description": "Login page",
+                "requires_auth": false
+            },
+            {
+                "name": "contacts",
+                "route": "/contacts",
+                "description": "Contacts page",
+                "requires_auth": true
+            },
+            {
+                "name": "dashboard",
+                "route": "/dashboard",
+                "description": "Dashboard page",
+                "requires_auth": true
+            },
+            {
+                "name": "analytics",
+                "route": "/analytics",
+                "description": "Analytics page",
+                "requires_auth": true
+            }
+        ],
+        "roles": [
+            "admin",
+            "user"
+        ],
+        "assumptions": []
+    },
+    "provider": "fallback_chain",
+    "version": "1.0.0"
+}

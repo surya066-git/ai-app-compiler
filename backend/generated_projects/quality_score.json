@@ -1,0 +1,13 @@
+{
+  "score": 100,
+  "grade": "A",
+  "success_rate": 100.0,
+  "average_latency_seconds": 0.2711111704508464,
+  "total_repairs": 0,
+  "total_provider_fallbacks": 0,
+  "total_provider_switches": 0,
+  "total_quota_failures": 0,
+  "total_retries": 0,
+  "total_runtime_failures": 0,
+  "total_validation_failures": 0
+}

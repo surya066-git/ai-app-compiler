@@ -1,0 +1,50 @@
+{
+  "repair_count": 2,
+  "traces": [
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 1
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 2
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 3
+    }
+  ]
+}

@@ -1,0 +1,684 @@
+{
+  "success": false,
+  "generation_id": "634a1df5-3ac4-4651-8d05-23fbaf8b346a",
+  "intent": {
+    "app_name": "Real Estate CRM",
+    "features": [
+      "Authentication",
+      "Dashboard",
+      "Validation",
+      "ZIP export",
+      "Leads management",
+      "Properties management",
+      "Agents management",
+      "Metrics management"
+    ],
+    "database_tables": [
+      "users",
+      "leads",
+      "properties",
+      "agents",
+      "metrics",
+      "reports"
+    ],
+    "pages": [
+      "Dashboard",
+      "Leads",
+      "Properties",
+      "Agents",
+      "Metrics",
+      "Reports"
+    ]
+  },
+  "architecture": {
+    "app_name": "Real Estate CRM",
+    "description": "\u201cBuild a CRM with login, contacts, dashboard, role-based access, and premium plan with payments. Admins can see analytics.\u201d",
+    "tables": [
+      {
+        "name": "users",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "username",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "hashed_password",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "leads",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "properties",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "agents",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "metrics",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "reports",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      }
+    ],
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/api/users",
+        "requires_auth": false,
+        "description": "List users records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/users",
+        "requires_auth": false,
+        "description": "Create a users record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/users/{id}",
+        "requires_auth": false,
+        "description": "Fetch one users record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/leads",
+        "requires_auth": true,
+        "description": "List leads records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/leads",
+        "requires_auth": true,
+        "description": "Create a leads record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/leads/{id}",
+        "requires_auth": true,
+        "description": "Fetch one leads record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/properties",
+        "requires_auth": true,
+        "description": "List properties records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/properties",
+        "requires_auth": true,
+        "description": "Create a properties record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/properties/{id}",
+        "requires_auth": true,
+        "description": "Fetch one properties record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/agents",
+        "requires_auth": true,
+        "description": "List agents records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/agents",
+        "requires_auth": true,
+        "description": "Create a agents record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/agents/{id}",
+        "requires_auth": true,
+        "description": "Fetch one agents record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/metrics",
+        "requires_auth": true,
+        "description": "List metrics records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/metrics",
+        "requires_auth": true,
+        "description": "Create a metrics record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/metrics/{id}",
+        "requires_auth": true,
+        "description": "Fetch one metrics record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/reports",
+        "requires_auth": true,
+        "description": "List reports records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/reports",
+        "requires_auth": true,
+        "description": "Create a reports record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/reports/{id}",
+        "requires_auth": true,
+        "description": "Fetch one reports record"
+      }
+    ],
+    "pages": [
+      {
+        "name": "Dashboard",
+        "route": "/dashboard",
+        "description": "Dashboard workspace",
+        "requires_auth": false
+      },
+      {
+        "name": "Leads",
+        "route": "/leads",
+        "description": "Leads workspace",
+        "requires_auth": true
+      },
+      {
+        "name": "Properties",
+        "route": "/properties",
+        "description": "Properties workspace",
+        "requires_auth": true
+      },
+      {
+        "name": "Agents",
+        "route": "/agents",
+        "description": "Agents workspace",
+        "requires_auth": true
+      },
+      {
+        "name": "Metrics",
+        "route": "/metrics",
+        "description": "Metrics workspace",
+        "requires_auth": true
+      },
+      {
+        "name": "Reports",
+        "route": "/reports",
+        "description": "Reports workspace",
+        "requires_auth": true
+      }
+    ],
+    "roles": [
+      "admin",
+      "user"
+    ],
+    "assumptions": [
+      "JWT authentication is used for protected pages and APIs.",
+      "SQLite is used for local runtime validation and PostgreSQL is configured for deployment.",
+      "CRUD endpoints are generated for the primary domain tables."
+    ]
+  },
+  "assumptions": [],
+  "metrics": {
+    "start_time": 1780589510.3175426,
+    "end_time": 1780589510.7444644,
+    "latency": 0.4269218444824219,
+    "provider_fallbacks": 0,
+    "repair_counts": 2,
+    "validation_failures": 0,
+    "runtime_failures": 3,
+    "stages_completed": [
+      "Intent Extraction",
+      "Clarification",
+      "Planning",
+      "IR Generation",
+      "Generation",
+      "Validation",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Export",
+      "Evaluation"
+    ],
+    "provider_latency": {
+      "local_deterministic": [
+        0.0001304149627685547,
+        7.772445678710938e-05,
+        0.0002875328063964844,
+        6.818771362304688e-05,
+        5.888938903808594e-05,
+        5.8650970458984375e-05,
+        5.698204040527344e-05,
+        4.291534423828125e-05,
+        4.172325134277344e-05,
+        5.412101745605469e-05,
+        4.0531158447265625e-05,
+        3.695487976074219e-05,
+        3.886222839355469e-05
+      ]
+    }
+  },
+  "provider_metrics": {
+    "attempts": 13,
+    "fallbacks": 0,
+    "provider_switches": 0,
+    "quota_failures": 0,
+    "timeout_failures": 0,
+    "fallback_events": [],
+    "provider_latency": {
+      "local_deterministic": [
+        0.0001304149627685547,
+        7.772445678710938e-05,
+        0.0002875328063964844,
+        6.818771362304688e-05,
+        5.888938903808594e-05,
+        5.8650970458984375e-05,
+        5.698204040527344e-05,
+        4.291534423828125e-05,
+        4.172325134277344e-05,
+        5.412101745605469e-05,
+        4.0531158447265625e-05,
+        3.695487976074219e-05,
+        3.886222839355469e-05
+      ]
+    },
+    "provider_failures": {},
+    "provider_successes": {
+      "local_deterministic": 13
+    },
+    "last_provider": "local_deterministic",
+    "provider_health": {
+      "local_deterministic": 100
+    }
+  },
+  "repair_count": 2,
+  "repair_trace": [
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 1
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 2
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Backend Sandbox Error: ; Frontend Sandbox Error: Frontend validation failed: ",
+      "health_report": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      },
+      "attempt": 3
+    }
+  ],
+  "runtime": {
+    "success": false,
+    "errors": [
+      "Backend Sandbox Error: ",
+      "Frontend Sandbox Error: Frontend validation failed: "
+    ],
+    "health_report": {
+      "success": false,
+      "checks": [],
+      "backend_url": null,
+      "frontend_url": null
+    },
+    "metrics": {
+      "backend_startup_time": null,
+      "frontend_startup_time": null,
+      "success": false,
+      "backend_url": null,
+      "frontend_url": null,
+      "health_success": false,
+      "errors": [
+        "Backend Sandbox Error: ",
+        "Frontend Sandbox Error: Frontend validation failed: "
+      ]
+    }
+  },
+  "score": {
+    "generation_id": "634a1df5-3ac4-4651-8d05-23fbaf8b346a",
+    "score": 50,
+    "repair_count": 2,
+    "runtime_success": false,
+    "grade": "F"
+  },
+  "stages": [
+    {
+      "stage": "Intent Extraction",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Clarification",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Planning",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "IR Generation",
+      "status": "completed",
+      "details": {
+        "tables": 6,
+        "endpoints": 18,
+        "pages": 6
+      }
+    },
+    {
+      "stage": "Generation",
+      "status": "completed",
+      "details": {
+        "files_generated": 51
+      }
+    },
+    {
+      "stage": "Validation",
+      "status": "completed",
+      "details": {
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "skipped",
+      "details": {
+        "reason": "No validation repair required"
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "failed",
+      "details": {
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "failed",
+      "details": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "completed",
+      "details": {
+        "attempt": 1,
+        "scope": "runtime",
+        "error": [
+          "Backend Sandbox Error: ",
+          "Frontend Sandbox Error: Frontend validation failed: "
+        ]
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "failed",
+      "details": {
+        "attempt": 2
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "failed",
+      "details": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "completed",
+      "details": {
+        "attempt": 2,
+        "scope": "runtime",
+        "error": [
+          "Backend Sandbox Error: ",
+          "Frontend Sandbox Error: Frontend validation failed: "
+        ]
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "failed",
+      "details": {
+        "attempt": 3
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "failed",
+      "details": {
+        "success": false,
+        "checks": [],
+        "backend_url": null,
+        "frontend_url": null
+      }
+    },
+    {
+      "stage": "Export",
+      "status": "blocked",
+      "details": {
+        "reason": "Runtime or health verification failed"
+      }
+    },
+    {
+      "stage": "Evaluation",
+      "status": "completed",
+      "details": {
+        "score": 50,
+        "grade": "F"
+      }
+    }
+  ],
+  "download_url": null
+}

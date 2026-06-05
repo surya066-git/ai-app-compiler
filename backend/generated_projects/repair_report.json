@@ -1,0 +1,92 @@
+{
+  "runtime_mode": false,
+  "scenarios": [
+    {
+      "scenario": "missing_route",
+      "detected": true,
+      "repaired": true,
+      "validation_passed_after_repair": true,
+      "initial_error": "Missing backend route GET /api/users",
+      "trace": [
+        {
+          "type": "route_repair",
+          "file": "backend/main.py",
+          "error": "Missing backend route GET /api/users",
+          "route": "/api/users",
+          "method": "GET",
+          "status": "applied"
+        }
+      ]
+    },
+    {
+      "scenario": "broken_import",
+      "detected": true,
+      "repaired": true,
+      "validation_passed_after_repair": true,
+      "initial_error": "Missing import in backend/main.py: name 'os' is not defined",
+      "trace": [
+        {
+          "type": "import_repair",
+          "file": "backend/main.py",
+          "error": "Missing import in backend/main.py: name 'os' is not defined",
+          "status": "applied"
+        }
+      ]
+    },
+    {
+      "scenario": "schema_mismatch",
+      "detected": true,
+      "repaired": true,
+      "validation_passed_after_repair": true,
+      "initial_error": "LLM output used schema-compatible data with wrong container shapes",
+      "trace": [
+        {
+          "type": "schema_repair",
+          "status": "applied",
+          "normalizations": [
+            "code_fence_removed",
+            "roles_string_to_list",
+            "tables_strings_to_objects",
+            "pages_strings_to_objects"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "frontend_backend_inconsistency",
+      "detected": true,
+      "repaired": true,
+      "validation_passed_after_repair": true,
+      "initial_error": "frontend/backend inconsistency: frontend API client is not configurable",
+      "trace": [
+        {
+          "type": "frontend_backend_consistency_repair",
+          "file": "frontend/src/api.js",
+          "error": "frontend/backend inconsistency: frontend API client is not configurable",
+          "status": "applied"
+        }
+      ]
+    },
+    {
+      "scenario": "runtime_startup_failure",
+      "detected": true,
+      "repaired": true,
+      "runtime_validation_passed_after_repair": true,
+      "initial_error": "NameError in backend/main.py: name 'FastAPI' is not defined",
+      "trace": [
+        {
+          "type": "import_repair",
+          "file": "backend/main.py",
+          "error": "NameError in backend/main.py: name 'FastAPI' is not defined",
+          "status": "applied"
+        }
+      ],
+      "runtime_executed": false
+    }
+  ],
+  "summary": {
+    "total_scenarios": 5,
+    "detected": 5,
+    "repaired": 5
+  }
+}

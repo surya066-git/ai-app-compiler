@@ -1,0 +1,266 @@
+{
+  "repair_count": 2,
+  "traces": [
+    {
+      "type": "runtime_failure",
+      "error": "Health verification failed",
+      "health_report": {
+        "success": false,
+        "checks": [
+          {
+            "name": "backend_reachable",
+            "success": true,
+            "details": {
+              "url": "http://127.0.0.1:50822/"
+            }
+          },
+          {
+            "name": "backend_docs_reachable",
+            "success": true,
+            "details": {
+              "url": "http://127.0.0.1:50822/docs"
+            }
+          },
+          {
+            "name": "api_routes_registered",
+            "success": true,
+            "details": {
+              "paths": [
+                "/",
+                "/api/agents",
+                "/api/agents/{id}",
+                "/api/leads",
+                "/api/leads/{id}",
+                "/api/metrics",
+                "/api/metrics/{id}",
+                "/api/properties",
+                "/api/properties/{id}",
+                "/api/reports",
+                "/api/reports/{id}",
+                "/api/users",
+                "/api/users/{id}",
+                "/auth/login",
+                "/auth/signup"
+              ]
+            }
+          },
+          {
+            "name": "auth_signup_functional",
+            "success": false,
+            "details": {
+              "response": {
+                "status": 500,
+                "error": {
+                  "body": "Internal Server Error"
+                }
+              }
+            }
+          },
+          {
+            "name": "auth_login_functional",
+            "success": false,
+            "details": {
+              "token_returned": false
+            }
+          },
+          {
+            "name": "frontend_reachable",
+            "success": true,
+            "details": {
+              "url": "http://127.0.0.1:50823/"
+            }
+          },
+          {
+            "name": "frontend_backend_communication_configured",
+            "success": true,
+            "details": {
+              "api_file": "frontend/src/api.js",
+              "backend_url": "http://127.0.0.1:50822"
+            }
+          }
+        ],
+        "backend_url": "http://127.0.0.1:50822",
+        "frontend_url": "http://127.0.0.1:50823"
+      },
+      "attempt": 1
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Health verification failed",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Health verification failed",
+      "health_report": {
+        "success": false,
+        "checks": [
+          {
+            "name": "backend_reachable",
+            "success": true,
+            "details": {
+              "url": "http://127.0.0.1:49943/"
+            }
+          },
+          {
+            "name": "backend_docs_reachable",
+            "success": true,
+            "details": {
+              "url": "http://127.0.0.1:49943/docs"
+            }
+          },
+          {
+            "name": "api_routes_registered",
+            "success": true,
+            "details": {
+              "paths": [
+                "/",
+                "/api/agents",
+                "/api/agents/{id}",
+                "/api/leads",
+                "/api/leads/{id}",
+                "/api/metrics",
+                "/api/metrics/{id}",
+                "/api/properties",
+                "/api/properties/{id}",
+                "/api/reports",
+                "/api/reports/{id}",
+                "/api/users",
+                "/api/users/{id}",
+                "/auth/login",
+                "/auth/signup"
+              ]
+            }
+          },
+          {
+            "name": "auth_signup_functional",
+            "success": false,
+            "details": {
+              "response": {
+                "status": 500,
+                "error": {
+                  "body": "Internal Server Error"
+                }
+              }
+            }
+          },
+          {
+            "name": "auth_login_functional",
+            "success": false,
+            "details": {
+              "token_returned": false
+            }
+          },
+          {
+            "name": "frontend_reachable",
+            "success": true,
+            "details": {
+              "url": "http://127.0.0.1:49944/"
+            }
+          },
+          {
+            "name": "frontend_backend_communication_configured",
+            "success": true,
+            "details": {
+              "api_file": "frontend/src/api.js",
+              "backend_url": "http://127.0.0.1:49943"
+            }
+          }
+        ],
+        "backend_url": "http://127.0.0.1:49943",
+        "frontend_url": "http://127.0.0.1:49944"
+      },
+      "attempt": 2
+    },
+    {
+      "type": "provider_retry",
+      "file": "backend/main.py",
+      "error": "Health verification failed",
+      "status": "applied"
+    },
+    {
+      "type": "runtime_failure",
+      "error": "Health verification failed",
+      "health_report": {
+        "success": false,
+        "checks": [
+          {
+            "name": "backend_reachable",
+            "success": true,
+            "details": {
+              "url": "http://127.0.0.1:49960/"
+            }
+          },
+          {
+            "name": "backend_docs_reachable",
+            "success": true,
+            "details": {
+              "url": "http://127.0.0.1:49960/docs"
+            }
+          },
+          {
+            "name": "api_routes_registered",
+            "success": true,
+            "details": {
+              "paths": [
+                "/",
+                "/api/agents",
+                "/api/agents/{id}",
+                "/api/leads",
+                "/api/leads/{id}",
+                "/api/metrics",
+                "/api/metrics/{id}",
+                "/api/properties",
+                "/api/properties/{id}",
+                "/api/reports",
+                "/api/reports/{id}",
+                "/api/users",
+                "/api/users/{id}",
+                "/auth/login",
+                "/auth/signup"
+              ]
+            }
+          },
+          {
+            "name": "auth_signup_functional",
+            "success": false,
+            "details": {
+              "response": {
+                "status": 500,
+                "error": {
+                  "body": "Internal Server Error"
+                }
+              }
+            }
+          },
+          {
+            "name": "auth_login_functional",
+            "success": false,
+            "details": {
+              "token_returned": false
+            }
+          },
+          {
+            "name": "frontend_reachable",
+            "success": true,
+            "details": {
+              "url": "http://127.0.0.1:49961/"
+            }
+          },
+          {
+            "name": "frontend_backend_communication_configured",
+            "success": true,
+            "details": {
+              "api_file": "frontend/src/api.js",
+              "backend_url": "http://127.0.0.1:49960"
+            }
+          }
+        ],
+        "backend_url": "http://127.0.0.1:49960",
+        "frontend_url": "http://127.0.0.1:49961"
+      },
+      "attempt": 3
+    }
+  ]
+}

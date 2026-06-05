@@ -1,0 +1,552 @@
+{
+  "success": true,
+  "generation_id": "bf6cedaf-a3ff-483b-9eda-b553777ebc64",
+  "intent": {
+    "app_name": "Team Chat App",
+    "features": [
+      "Authentication",
+      "Dashboard",
+      "Validation",
+      "ZIP export",
+      "Rooms management",
+      "Messages management",
+      "Vehicles management",
+      "Campaigns management"
+    ],
+    "database_tables": [
+      "users",
+      "rooms",
+      "messages",
+      "vehicles",
+      "campaigns",
+      "leads"
+    ],
+    "pages": [
+      "Dashboard",
+      "Rooms",
+      "Messages",
+      "Vehicles",
+      "Campaigns",
+      "Leads"
+    ]
+  },
+  "architecture": {
+    "app_name": "Team Chat App",
+    "description": "Develop a real-time chat application with multiple chat rooms, online user status, and message history.",
+    "tables": [
+      {
+        "name": "users",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "username",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "hashed_password",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "rooms",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "messages",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "vehicles",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "campaigns",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      },
+      {
+        "name": "leads",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "is_primary_key": true,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "is_primary_key": false,
+            "is_foreign_key": false,
+            "references": null
+          }
+        ]
+      }
+    ],
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/api/users",
+        "requires_auth": false,
+        "description": "List users records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/users",
+        "requires_auth": false,
+        "description": "Create a users record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/users/{id}",
+        "requires_auth": false,
+        "description": "Fetch one users record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/rooms",
+        "requires_auth": true,
+        "description": "List rooms records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/rooms",
+        "requires_auth": true,
+        "description": "Create a rooms record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/rooms/{id}",
+        "requires_auth": true,
+        "description": "Fetch one rooms record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/messages",
+        "requires_auth": true,
+        "description": "List messages records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/messages",
+        "requires_auth": true,
+        "description": "Create a messages record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/messages/{id}",
+        "requires_auth": true,
+        "description": "Fetch one messages record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/vehicles",
+        "requires_auth": true,
+        "description": "List vehicles records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/vehicles",
+        "requires_auth": true,
+        "description": "Create a vehicles record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/vehicles/{id}",
+        "requires_auth": true,
+        "description": "Fetch one vehicles record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/campaigns",
+        "requires_auth": true,
+        "description": "List campaigns records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/campaigns",
+        "requires_auth": true,
+        "description": "Create a campaigns record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/campaigns/{id}",
+        "requires_auth": true,
+        "description": "Fetch one campaigns record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/leads",
+        "requires_auth": true,
+        "description": "List leads records"
+      },
+      {
+        "method": "POST",
+        "path": "/api/leads",
+        "requires_auth": true,
+        "description": "Create a leads record"
+      },
+      {
+        "method": "GET",
+        "path": "/api/leads/{id}",
+        "requires_auth": true,
+        "description": "Fetch one leads record"
+      }
+    ],
+    "pages": [
+      {
+        "name": "Dashboard",
+        "route": "/dashboard",
+        "description": "Dashboard workspace",
+        "requires_auth": false
+      },
+      {
+        "name": "Rooms",
+        "route": "/rooms",
+        "description": "Rooms workspace",
+        "requires_auth": true
+      },
+      {
+        "name": "Messages",
+        "route": "/messages",
+        "description": "Messages workspace",
+        "requires_auth": true
+      },
+      {
+        "name": "Vehicles",
+        "route": "/vehicles",
+        "description": "Vehicles workspace",
+        "requires_auth": true
+      },
+      {
+        "name": "Campaigns",
+        "route": "/campaigns",
+        "description": "Campaigns workspace",
+        "requires_auth": true
+      },
+      {
+        "name": "Leads",
+        "route": "/leads",
+        "description": "Leads workspace",
+        "requires_auth": true
+      }
+    ],
+    "roles": [
+      "admin",
+      "user"
+    ],
+    "assumptions": [
+      "JWT authentication is used for protected pages and APIs.",
+      "SQLite is used for local runtime validation and PostgreSQL is configured for deployment.",
+      "CRUD endpoints are generated for the primary domain tables."
+    ]
+  },
+  "assumptions": [],
+  "metrics": {
+    "start_time": 1780587901.8123507,
+    "end_time": 1780587902.0365727,
+    "latency": 0.22422194480895996,
+    "provider_fallbacks": 0,
+    "repair_counts": 0,
+    "validation_failures": 0,
+    "runtime_failures": 0,
+    "stages_completed": [
+      "Intent Extraction",
+      "Clarification",
+      "Planning",
+      "IR Generation",
+      "Generation",
+      "Validation",
+      "Repair",
+      "Runtime Launch",
+      "Health Check",
+      "Export",
+      "Evaluation"
+    ],
+    "provider_latency": {
+      "local_deterministic": [
+        6.437301635742188e-05,
+        2.6941299438476562e-05,
+        0.0001461505889892578,
+        6.389617919921875e-05,
+        1.0251998901367188e-05,
+        2.3603439331054688e-05,
+        1.9788742065429688e-05,
+        2.384185791015625e-05,
+        1.8596649169921875e-05,
+        3.361701965332031e-05,
+        2.2649765014648438e-05
+      ]
+    }
+  },
+  "provider_metrics": {
+    "attempts": 11,
+    "fallbacks": 0,
+    "provider_switches": 0,
+    "quota_failures": 0,
+    "timeout_failures": 0,
+    "fallback_events": [],
+    "provider_latency": {
+      "local_deterministic": [
+        6.437301635742188e-05,
+        2.6941299438476562e-05,
+        0.0001461505889892578,
+        6.389617919921875e-05,
+        1.0251998901367188e-05,
+        2.3603439331054688e-05,
+        1.9788742065429688e-05,
+        2.384185791015625e-05,
+        1.8596649169921875e-05,
+        3.361701965332031e-05,
+        2.2649765014648438e-05
+      ]
+    },
+    "provider_failures": {},
+    "provider_successes": {
+      "local_deterministic": 11
+    },
+    "last_provider": "local_deterministic",
+    "provider_health": {
+      "local_deterministic": 100
+    }
+  },
+  "repair_count": 0,
+  "repair_trace": [],
+  "runtime": {
+    "success": true,
+    "skipped": true,
+    "errors": [],
+    "health_report": {
+      "success": true,
+      "skipped": true,
+      "checks": []
+    }
+  },
+  "score": {
+    "generation_id": "bf6cedaf-a3ff-483b-9eda-b553777ebc64",
+    "score": 100,
+    "repair_count": 0,
+    "runtime_success": true,
+    "grade": "A"
+  },
+  "stages": [
+    {
+      "stage": "Intent Extraction",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Clarification",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "Planning",
+      "status": "completed",
+      "details": {}
+    },
+    {
+      "stage": "IR Generation",
+      "status": "completed",
+      "details": {
+        "tables": 6,
+        "endpoints": 18,
+        "pages": 6
+      }
+    },
+    {
+      "stage": "Generation",
+      "status": "completed",
+      "details": {
+        "files_generated": 51
+      }
+    },
+    {
+      "stage": "Validation",
+      "status": "completed",
+      "details": {
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "Repair",
+      "status": "skipped",
+      "details": {
+        "reason": "No validation repair required"
+      }
+    },
+    {
+      "stage": "Runtime Launch",
+      "status": "skipped",
+      "details": {
+        "reason": "Benchmark quick mode"
+      }
+    },
+    {
+      "stage": "Health Check",
+      "status": "skipped",
+      "details": {
+        "reason": "Benchmark quick mode"
+      }
+    },
+    {
+      "stage": "Export",
+      "status": "completed",
+      "details": {
+        "zip_path": "generated_projects\\team_chat_app_bf6cedaf-a3ff-483b-9eda-b553777ebc64.zip"
+      }
+    },
+    {
+      "stage": "Evaluation",
+      "status": "completed",
+      "details": {
+        "score": 100,
+        "grade": "A"
+      }
+    }
+  ],
+  "download_url": "/download/team_chat_app_bf6cedaf-a3ff-483b-9eda-b553777ebc64.zip"
+}

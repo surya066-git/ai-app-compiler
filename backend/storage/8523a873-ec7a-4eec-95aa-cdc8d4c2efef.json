@@ -1,0 +1,190 @@
+{
+    "generation_id": "8523a873-ec7a-4eec-95aa-cdc8d4c2efef",
+    "timestamp": "2026-06-04T15:49:06.828516Z",
+    "prompt": "Build a todo app with users and tasks",
+    "architecture": {
+        "app_name": "Task Management System",
+        "description": "Build a todo app with users and tasks",
+        "tables": [
+            {
+                "name": "users",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "username",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "hashed_password",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "projects",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "name",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "status",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "description",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "tasks",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "name",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "status",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "description",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            }
+        ],
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "/api/users",
+                "requires_auth": false,
+                "description": "List users records"
+            },
+            {
+                "method": "POST",
+                "path": "/api/users",
+                "requires_auth": false,
+                "description": "Create a users record"
+            },
+            {
+                "method": "GET",
+                "path": "/api/users/{id}",
+                "requires_auth": false,
+                "description": "Fetch one users record"
+            },
+            {
+                "method": "GET",
+                "path": "/api/projects",
+                "requires_auth": true,
+                "description": "List projects records"
+            },
+            {
+                "method": "POST",
+                "path": "/api/projects",
+                "requires_auth": true,
+                "description": "Create a projects record"
+            },
+            {
+                "method": "GET",
+                "path": "/api/projects/{id}",
+                "requires_auth": true,
+                "description": "Fetch one projects record"
+            },
+            {
+                "method": "GET",
+                "path": "/api/tasks",
+                "requires_auth": true,
+                "description": "List tasks records"
+            },
+            {
+                "method": "POST",
+                "path": "/api/tasks",
+                "requires_auth": true,
+                "description": "Create a tasks record"
+            },
+            {
+                "method": "GET",
+                "path": "/api/tasks/{id}",
+                "requires_auth": true,
+                "description": "Fetch one tasks record"
+            }
+        ],
+        "pages": [
+            {
+                "name": "Dashboard",
+                "route": "/dashboard",
+                "description": "Dashboard workspace",
+                "requires_auth": false
+            },
+            {
+                "name": "Projects",
+                "route": "/projects",
+                "description": "Projects workspace",
+                "requires_auth": true
+            },
+            {
+                "name": "Tasks",
+                "route": "/tasks",
+                "description": "Tasks workspace",
+                "requires_auth": true
+            }
+        ],
+        "roles": [
+            "admin",
+            "user"
+        ],
+        "assumptions": [
+            "JWT authentication is used for protected pages and APIs.",
+            "SQLite is used for local runtime validation and PostgreSQL is configured for deployment.",
+            "CRUD endpoints are generated for the primary domain tables."
+        ]
+    },
+    "provider": "fallback_chain",
+    "version": "1.0.0"
+}

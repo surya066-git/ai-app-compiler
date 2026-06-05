@@ -1,0 +1,228 @@
+{
+    "generation_id": "252e56a0-7f0a-45ae-b53b-90ab5338a44c",
+    "architecture": {
+        "app_name": "CRM App",
+        "description": "A customer relationship management system with role-based access and premium plan",
+        "tables": [
+            {
+                "name": "users",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "username",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "password",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "role",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "contacts",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "name",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "email",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "user_id",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": true,
+                        "references": "users.id"
+                    }
+                ]
+            },
+            {
+                "name": "payments",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "user_id",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": true,
+                        "references": "users.id"
+                    },
+                    {
+                        "name": "plan",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            },
+            {
+                "name": "analytics",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "Integer",
+                        "is_primary_key": true,
+                        "is_foreign_key": false,
+                        "references": null
+                    },
+                    {
+                        "name": "user_id",
+                        "type": "Integer",
+                        "is_primary_key": false,
+                        "is_foreign_key": true,
+                        "references": "users.id"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String",
+                        "is_primary_key": false,
+                        "is_foreign_key": false,
+                        "references": null
+                    }
+                ]
+            }
+        ],
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "/login",
+                "requires_auth": false,
+                "description": "Login endpoint"
+            },
+            {
+                "method": "GET",
+                "path": "/contacts",
+                "requires_auth": true,
+                "description": "Get all contacts"
+            },
+            {
+                "method": "GET",
+                "path": "/dashboard",
+                "requires_auth": true,
+                "description": "Get dashboard data"
+            },
+            {
+                "method": "GET",
+                "path": "/analytics",
+                "requires_auth": true,
+                "description": "Get analytics data"
+            },
+            {
+                "method": "POST",
+                "path": "/payments",
+                "requires_auth": true,
+                "description": "Make a payment"
+            }
+        ],
+        "pages": [
+            {
+                "name": "login",
+                "route": "/login",
+                "description": "Login page",
+                "requires_auth": false
+            },
+            {
+                "name": "contacts",
+                "route": "/contacts",
+                "description": "Contacts page",
+                "requires_auth": true
+            },
+            {
+                "name": "dashboard",
+                "route": "/dashboard",
+                "description": "Dashboard page",
+                "requires_auth": true
+            },
+            {
+                "name": "analytics",
+                "route": "/analytics",
+                "description": "Analytics page",
+                "requires_auth": true
+            }
+        ],
+        "roles": [
+            "admin",
+            "user"
+        ],
+        "assumptions": []
+    },
+    "exported_files": [
+        "backend/security.py",
+        "backend/auth.py",
+        "backend/database.py",
+        "backend/models.py",
+        "backend/routers/__init__.py",
+        "backend/routers/post_login.py",
+        "backend/routers/get_contacts.py",
+        "backend/routers/get_dashboard.py",
+        "backend/routers/get_analytics.py",
+        "backend/routers/post_payments.py",
+        "backend/main.py",
+        "backend/requirements.txt",
+        "frontend/vite.config.js",
+        "frontend/package.json",
+        "frontend/index.html",
+        "frontend/tailwind.config.js",
+        "frontend/postcss.config.js",
+        "frontend/src/main.jsx",
+        "frontend/src/index.css",
+        "frontend/src/api.js",
+        "frontend/src/store.js",
+        "frontend/src/components/Sidebar.jsx",
+        "frontend/src/components/Navbar.jsx",
+        "frontend/src/components/Login.jsx",
+        "frontend/src/components/Contacts.jsx",
+        "frontend/src/components/Dashboard.jsx",
+        "frontend/src/components/Analytics.jsx",
+        "frontend/src/App.jsx",
+        "docker-compose.yml",
+        "backend/Dockerfile",
+        "frontend/Dockerfile",
+        ".env.example",
+        ".gitignore",
+        "README.md",
+        "Dockerfile",
+        "assumptions.json"
+    ]
+}

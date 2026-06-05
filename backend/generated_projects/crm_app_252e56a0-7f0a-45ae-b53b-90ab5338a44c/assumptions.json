@@ -1,0 +1,8 @@
+[
+  "Authentication assumed to be JWT",
+  "PostgreSQL used for database",
+  "React used for frontend framework",
+  "Stripe used for payment gateway",
+  "Material-UI used for styling preferences",
+  "Google Analytics used for specific analytics requirements"
+]

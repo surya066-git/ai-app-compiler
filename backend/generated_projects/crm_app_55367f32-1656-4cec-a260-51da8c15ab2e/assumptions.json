@@ -1,0 +1,9 @@
+[
+  "Authentication assumed to be JWT",
+  "PostgreSQL used for database",
+  "Material Design used for styling preferences",
+  "Stripe used for payment gateway",
+  "Google Analytics used for analytics metrics",
+  "Three role-based access levels: Admin, Manager, User",
+  "Premium plan features include advanced analytics and priority support"
+]
