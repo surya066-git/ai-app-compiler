@@ -26,7 +26,11 @@ const PIPELINE = [
   'Export',
 ];
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL;
+
+if (!API_URL) {
+  console.warn('[AI App Compiler] VITE_API_URL is not set. API calls will fail.');
+}
 
 function stageTone(status) {
   if (status === 'completed') return 'border-emerald-300 bg-emerald-50 text-emerald-800';
@@ -81,7 +85,7 @@ function App() {
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 300000);
-      const res = await fetch(`${API_BASE}/compile`, {
+      const res = await fetch(`${API_URL}/compile`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt }),
@@ -97,11 +101,11 @@ function App() {
       setResult(data);
     } catch (err) {
       if (err.name === 'AbortError') {
-        setError('Compilation timed out after 5 minutes.');
+        setError('Compilation timed out after 5 minutes. Please try again.');
       } else if (err.message === 'Failed to fetch' || err.message?.includes('NetworkError')) {
-        setError('Backend is not reachable at http://localhost:8000.');
+        setError(`Backend is not reachable at ${API_URL || '(VITE_API_URL not configured)'}. Please check your connection and try again.`);
       } else {
-        setError(err.message);
+        setError(err.message || 'An unexpected error occurred. Please try again.');
       }
     } finally {
       setIsCompiling(false);
@@ -166,7 +170,7 @@ function App() {
               {exportReady && (
                 <a
                   className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600"
-                  href={`${API_BASE}${result.download_url}`}
+                  href={`${API_URL}${result.download_url}`}
                 >
                   <Download className="h-4 w-4" />
                   Download ZIP
