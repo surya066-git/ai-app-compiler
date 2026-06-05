@@ -24,7 +24,7 @@ async def run_frontend(project_dir: str, port: int) -> dict:
     # ------------------------------------------------------------------
     install_result = await _run_npm_step(
         label="npm install",
-        command="npm install --no-audit --no-fund --loglevel=error",
+        command="npm install --include=dev --no-audit --no-fund --loglevel=error",
         cwd=frontend_dir,
         timeout=180,
         failure_code="dependency_installation_failed",
